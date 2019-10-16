@@ -8,6 +8,9 @@ KERNEL_DEVICETREE ?= " \
     am335x-boneblue.dtb \
     am335x-bonegreen.dtb \
     am335x-bonegreen-wireless.dtb \
+    bbb-nohdmi.dtb \
+    bbb-4dcape50t.dtb \
+    pwm_P8_13.dtb   
 "
 
 LINUX_VERSION = "4.19"
@@ -25,4 +28,8 @@ SRC_URI = " \
     file://0001-spidev-Add-a-generic-compatible-id.patch \
     file://0002-dts-Remove-bbb-cape-i2c-definitions.patch \
     file://0003-wlcore-Change-NO-FW-RX-BA-session-warnings-to-debug.patch \
+    file://0004-Add-pwm-output-p8_13.patch \
+    file://0005-dts-Add-custom-dts-files.patch \
+    file://0006-Add-dts-for-4dcape-5-inch-resistive-touch-display.patch \
+
 "
