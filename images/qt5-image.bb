@@ -1,6 +1,6 @@
 SUMMARY = "A Qt5 development image"
 HOMEPAGE = "http://www.jumpnowtek.com"
-
+inherit populate_sdk_qt5
 require console-image.bb
 
 QT_DEV_TOOLS = " \
