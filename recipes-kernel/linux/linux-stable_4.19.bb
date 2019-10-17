@@ -10,7 +10,7 @@ KERNEL_DEVICETREE ?= " \
     am335x-bonegreen-wireless.dtb \
     bbb-nohdmi.dtb \
     bbb-4dcape50t.dtb \
-    pwm_P8_13.dtb   \
+    pwm_P8_13.dtb \
 "
 
 LINUX_VERSION = "4.19"
@@ -19,7 +19,7 @@ LINUX_VERSION_EXTENSION = "-jumpnow"
 FILESEXTRAPATHS_prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:"
 
 S = "${WORKDIR}/git"
-PR = "r1"
+PR = "r2"
 PV = "4.19.79"
 SRCREV = "dafd634415a7f9892a6fcc99c540fe567ab42c92"
 SRC_URI = " \
