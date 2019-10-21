@@ -11,6 +11,7 @@ KERNEL_DEVICETREE ?= " \
     bbb-nohdmi.dtb \
     bbb-4dcape50t.dtb \
     pwm_P9_14.dtb \
+    bbb-4dcape50ct.dtb \
 "
 
 LINUX_VERSION = "4.19"
@@ -31,4 +32,5 @@ SRC_URI = " \
     file://0004-pwm_p9_14.dts.patch \
     file://0005-dts-Add-custom-dts-files.patch \
     file://0006-Add-dts-for-4dcape-5-inch-resistive-touch-display.patch \
+    file://0007-dts-for-4dcape50ct.patch \
 "
