@@ -10,11 +10,6 @@
 
 #include "am33xx.dtsi"
 #include "am335x-bone-common.dtsi"
-#include "bbb-i2c1.dtsi"
-#include "bbb-i2c2.dtsi"
-#include "bbb-uart4.dtsi"
-
-
 / {
 	model = "TI AM335x BeagleBone Black";
 	compatible = "ti,am335x-bone-black", "ti,am33xx";
@@ -72,15 +67,16 @@
 		>;
 	};
 
-	ar1021_irq_pin: ar1021_irq_pin {
-		pinctrl-single,pins = <
-			0x180 (PIN_INPUT_PULLUP | MUX_MODE7)    /* P9.26, gpio0[14] */
-		>;
-	};
-	touchscreen_pins: touchscreen_pins {
+	bb_i2c1_pins: pinmux_bb_i2c1_pins {
 		pinctrl-single,pins = <
 			0x158 0x72	// spi0_d1.i2c1_sda, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2
 			0x15C 0x72	// spi0_cs0.i2c1_scl, SLEWCTRL_SLOW | INPUT_PULLUP | MODE2
+			>;
+	};
+
+	edt_ft5x06_pins: pinmux_edt_ft5x06_pins {
+		pinctrl-single,pins = <
+			0x180 0x37	// INPUT_PULLUP | MODE7
 		>;
 	};
 };
@@ -100,19 +96,28 @@
 };
 
 &i2c1 {
-	ft5x06_ts: ft5x06_ts@38 {
-		compatible = "focaltech,ft5x06";
-		pinctrl-names = "default";
-		pinctrl-0 = <&touchscreen_pins>;
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&bb_i2c1_pins>;
+
+	// configuration start
+	clock-frequency = <100000>;
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+	polytouch: edt-ft5x06@38 {
+		compatible = "edt,edt-ft5x06";
 		reg = <0x38>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&edt_ft5x06_pins>;
 		interrupt-parent = <&gpio0>;
 		interrupts = <14 2>;
-		xmin = <0>;
-		xmax = <799>;
-		xfuzz = <0>;
-		ymin = <0>;
-		ymax = <479>;
-		yfuzz = <0>;
+
+		touchscreen-size-y = <800>;
+		touchscreen-size-x = <480>;
+
+		touchscreen-swapped-x-y;
+		touchscreen-inverted-x;
 	};
 };
 
@@ -145,8 +150,6 @@
 		compatible = "ti,tilcdc,panel";
 		pinctrl-names = "default";
 		pinctrl-0 = <&lcd_pins>;
-		enable-gpios = <&gpio3 19 GPIO_ACTIVE_HIGH>;
-
 		panel-info {
 			ac-bias           = <255>;
 			ac-bias-intrpt    = <0>;
