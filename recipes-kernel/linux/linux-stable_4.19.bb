@@ -1,6 +1,6 @@
 require linux-stable.inc
 
-COMPATIBLE_MACHINE = "beaglebone"
+COMPATIBLE_MACHINE = "beaglebone|ti33x"
 
 KERNEL_DEVICETREE ?= " \
     am335x-boneblack.dtb \
