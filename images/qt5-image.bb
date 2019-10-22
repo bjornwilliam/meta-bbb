@@ -13,9 +13,56 @@ QT_DEV_TOOLS = " \
 
 QT_TOOLS = " \
     qtbase \
+    qtbase-dev \
+    qtbase-mkspecs \
     qtbase-plugins \
-    qtserialport \
+    qtbase-tools \
     qt5-env \
+    qtserialport \
+"
+
+QT5_PKGS = " \
+    qt3d \
+    qt3d-dev \
+    qt3d-mkspecs \
+    qtcharts \
+    qtcharts-dev \
+    qtcharts-mkspecs \
+    qtconnectivity-dev \
+    qtconnectivity-mkspecs \
+    qtdeclarative \
+    qtdeclarative-dev \
+    qtdeclarative-mkspecs \
+    qtdeclarative-plugins \
+    qtdeclarative-qmlplugins \
+    qtgraphicaleffects \
+    qtgraphicaleffects-dev \
+    qtlocation-dev \
+    qtlocation-mkspecs \
+    qtlocation-plugins \
+    qtmultimedia \
+    qtmultimedia-dev \
+    qtmultimedia-mkspecs \
+    qtquickcontrols2 \
+    qtquickcontrols2-dev \
+    qtquickcontrols2-mkspecs \
+    qtsensors-dev \
+    qtsensors-mkspecs \
+    qtsensors-plugins \
+    qtserialbus \
+    qtserialbus-dev \
+    qtserialbus-mkspecs \
+    qtsvg \
+    qtsvg-dev \
+    qtsvg-mkspecs \
+    qtwebsockets-dev \
+    qtwebsockets-mkspecs \
+    qtwebsockets-qmlplugins \
+    qtvirtualkeyboard \
+    qtvirtualkeyboard-dev \
+    qtxmlpatterns \
+    qtxmlpatterns-dev \
+    qtxmlpatterns-mkspecs \
 "
 
 FONTS = " \
@@ -37,6 +84,7 @@ IMAGE_INSTALL += " \
     qcolorcheck-tools \
     ${TSLIB} \
     tspress-tools \
+    ${QT5_PKGS} \
 "
 
 export IMAGE_BASENAME = "qt5-image"
