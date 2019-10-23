@@ -136,10 +136,6 @@
 / {
 	gpio_keys {
 		compatible = "gpio-keys";
-		pintctrl-names = "default";
-		pintctrl-0 = <@encoder_switch_pin>;
-		#address-cells = <1>;
-		#size-cells = <0>;
 		
 		button@1 {
 			debounce_interval = <50>;
