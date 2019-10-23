@@ -60,6 +60,18 @@
 			0x1a4 (PIN_OUTPUT_PULLUP | MUX_MODE7)    /* P9.27, gpio3_19 */
 		>;
 	};
+	
+	encoder_switch_pin: pinmux_encoder_switch_pin {
+		pinctrl-single,pins = <
+			AM33XX_IOPAD(0x830, PIN_INPUT_PULLUP | MUX_MODE7) /* P8.12 */		
+		>;
+	};
+	encoder_pins: pinmux_encoder_pins {
+		pinctrl-single,pins = <
+			AM33XX_IOPAD(0x894, PIN_INPUT_PULLUP | MUX_MODE7) /* P8.8 */
+			AM33XX_IOPAD(0x898, PIN_INPUT_PULLUP | MUX_MODE7) /* P8.10 */				
+		>;
+	};
 
 	backlight_pin: backlight_pin {
 		pinctrl-single,pins = <
@@ -122,6 +134,31 @@
 };
 
 / {
+	gpio_keys {
+		compatible = "gpio-keys";
+		pintctrl-names = "default";
+		pintctrl-0 = <@encoder_switch_pin>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		
+		button@1 {
+			debounce_interval = <50>;
+			linux,code = <105>;
+			label = "encswitch";
+			gpios = <&gpio1 12 1>;
+			gpio-key,wakeup;
+			autorepeat;				
+		};
+	
+	};
+	rotary: rotary@0 {
+		compatible = "rotary-encoder";
+		gpios = <&gpio2 3 0>, <&gpio2 4 0>; /* 0 : active high, 1: active low */
+		linux,axis = <0>; /* REL_X */
+		rotary-encoder,encoding = "gray";
+		rotary-encoder,relative-axis;
+	};
+
 	backlight {
 		status = "okay";
 		compatible = "pwm-backlight";
