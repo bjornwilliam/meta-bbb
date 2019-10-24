@@ -86,7 +86,7 @@ IMAGE_INSTALL += " \
     tspress-tools \
     ${QT5_PKGS} \
     ti-sgx-ddk-um \
-    omapdrm-pvr \
+    ti-sgx-ddk-km \
 "
 
 export IMAGE_BASENAME = "qt5-image"
