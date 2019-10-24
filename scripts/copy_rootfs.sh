@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MACHINE=beaglebone
+MACHINE=ti33x
 
 if [ "x${1}" = "x" ]; then
 	echo -e "\nUsage: ${0} <block device> [ <image-type> [<hostname>] ]\n"

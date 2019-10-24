@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MACHINE=beaglebone
+MACHINE=ti33x
 
 if [ "x${1}" = "x" ]; then
 	echo "Usage: ${0} <block device>"
