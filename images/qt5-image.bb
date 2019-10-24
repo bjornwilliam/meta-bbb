@@ -25,9 +25,6 @@ QT5_PKGS = " \
     qt3d \
     qt3d-dev \
     qt3d-mkspecs \
-    qtcharts \
-    qtcharts-dev \
-    qtcharts-mkspecs \
     qtconnectivity-dev \
     qtconnectivity-mkspecs \
     qtdeclarative \
@@ -55,9 +52,6 @@ QT5_PKGS = " \
     qtsvg \
     qtsvg-dev \
     qtsvg-mkspecs \
-    qtwebsockets-dev \
-    qtwebsockets-mkspecs \
-    qtwebsockets-qmlplugins \
     qtvirtualkeyboard \
     qtvirtualkeyboard-dev \
     qtxmlpatterns \
