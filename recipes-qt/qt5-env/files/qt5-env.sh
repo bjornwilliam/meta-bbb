@@ -2,7 +2,7 @@
 
 export PATH=${PATH}:/usr/bin/qt5
 
-export QT_QPA_PLATFORM=linuxfb
+export QT_QPA_PLATFORM=eglfs
 
 # to use tslib for input (no multi-touch)
 #export QT_QPA_FB_TSLIB=1

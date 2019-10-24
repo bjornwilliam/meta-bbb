@@ -32,5 +32,6 @@ SRC_URI = " \
     file://0004-pwm_p9_14.dts.patch \
     file://0005-dts-Add-custom-dts-files.patch \
     file://0006-Add-dts-for-4dcape-5-inch-resistive-touch-display.patch \
+    file://git/arch/arm/boot/dts/am33xxwithsgx.dtsi \
     file://git/arch/arm/boot/dts/bbb-4dcape50ct.dts \
 "
